@@ -1,0 +1,40 @@
+<%- include('template/header', {tituloPagina: 'Detalle trabajador'}) %>
+<body>
+    <!--Navbar-->
+    <%- include('template/navbar') %>
+
+    <div class="container mt-4">
+        <% if(trabajador) { %>
+        <h1 class="text-center">Detalle trabajador</h1>
+
+        <table class="table table-bordered text-center mt-4">
+            <thead>
+                <tr class="bg-info text-white">
+                    <th scope="col" colspan="2">DATOS TRABAJADOR</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>ID</td>
+                        <td><%= trabajador.id %></td>
+                    </tr>
+                    <tr>
+                        <td>Nombre</td>
+                        <td><%= trabajador.nombre %></td>
+                    </tr>
+                    <tr>
+                        <td>Cargo</td>
+                        <td><%= trabajador.cargo %></td>
+                    </tr>
+            </tbody>
+        </table>
+        <div class="text-center">
+            <a href="/edit/<%= trabajador.id %>" class="btn btn-primary">Editar</a>
+            <a href="/" class="btn btn-secondary">Volver</a>
+        </div>
+        <%}else{%>
+        <h1 class="text-center">El trabajador indicado no existe</h1>
+        <%}%>
+    </div>
+
+<%- include('template/footer') %>

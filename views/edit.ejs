@@ -1,0 +1,29 @@
+<%- include('template/header', {tituloPagina: 'Editar trabajador'}) %>
+<body>
+    <!--Navbar-->
+    <%- include('template/navbar') %>
+
+    <div class="container mt-4">
+        <% if(trabajador) { %>
+        <h1 class="text-center">Editar trabajador</h1>
+        <form action="/update" method="POST">
+            <input hidden id="campoId" name="campoId" value="<%= trabajador.id %>">
+            <div class="form-group">
+              <label for="campoNombre">Nombre</label>
+              <input type="text" class="form-control" id="campoNombre" name="campoNombre" placeholder="Escribe tu nombre" value="<%= trabajador.nombre %>">
+            </div>
+            <div class="form-group">
+                <label for="campoCargo">Cargo</label>
+                <input type="text" class="form-control" id="campoCargo" name="campoCargo" placeholder="Escribe tu cargo" value="<%= trabajador.cargo %>">
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+                <a href="/" class="btn btn-secondary">Volver</a>
+            </div>     
+        </form>
+        <%}else{%>
+        <h1 class="text-center">El trabajador indicado no existe</h1>
+        <%}%>
+    </div>
+
+<%- include('template/footer') %>
